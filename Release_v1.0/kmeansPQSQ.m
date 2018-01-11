@@ -11,14 +11,14 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
 %   kmeansPQSQ do not work with missed data. All NaNs treated as missed
 %   data and caused error.
 %
-%   [IDX, C] = kmeansPQSQ(X, K, @fun) also returns the K cluster centroid
+%   [IDX, C] = kmeansPQSQ(X, K, @fun) returns the K cluster centroid
 %   locations in the K-by-P matrix C.
 %
-%   [IDX, C, SUMD] = kmeansPQSQ(X, K, @fun) also returns the within-cluster
-%   sums of point-to-centroid distances in the K-by-1 vector sumD.
+%   [IDX, C, SUMD] = kmeansPQSQ(X, K, @fun) returns the within-cluster sums
+%   of point-to-centroid distances in the K-by-1 vector sumD.
 %
-%   [IDX, C, SUMD, D] = kmeansPQSQ(X, K, @fun) also returns distances from
-%   each point to every centroid in the N-by-K matrix D.
+%   [IDX, C, SUMD, D] = kmeansPQSQ(X, K, @fun) returns distances from each
+%   point to every centroid in the N-by-K matrix D.
 %
 %   [ ... ] = kmeansPQSQ(..., 'PARAM1',val1, 'PARAM2',val2, ...) specifies
 %   optional parameter name/value pairs to control the iterative algorithm
@@ -33,7 +33,7 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
 %       intervals shrinkage (see argument delta in defineIntervals.m). 
 %
 %   'Start' - Method used to choose initial cluster centroid positions,
-%       sometimes known as "seeds". Choices are:
+%       sometimes known as "seeds".  Choices are:
 %          'plus'    - The Default. Select K observations from X according
 %                      to the k-means++ algorithm: the first cluster center
 %                      is chosen uniformly at random from X, after which
