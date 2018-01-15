@@ -11,8 +11,8 @@ function c = PQSQR_Mean(x, potentialFunction, eps, c0)
 %   Generate data
 %   x = rand(100,5);
 %   Compare different centroids:
-%   cMean = mean(x)
-%   cMedian  = median(x)
+%   cMean = mean(x,1)
+%   cMedian  = median(x,1)
 %   Create potential function for L1
 %   potFun = PQSQR_definePotentialFunction( x, 5, @L1 );
 %   cPQSQL1 = PQSQR_Mean(x, potFun)
