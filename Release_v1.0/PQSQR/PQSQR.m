@@ -9,7 +9,7 @@ function y = PQSQR(x, potentialFunction)
 
     if size(x,2)>1
         %x contains data matrix
-        x = sum(x.^2,2);
+        x = sqrt(sum(x.^2,2));
     end
     inds = identifyIntervals(x,potentialFunction.sqint);
     y = potentialFunction.A(inds)'.*x + potentialFunction.B(inds)';
