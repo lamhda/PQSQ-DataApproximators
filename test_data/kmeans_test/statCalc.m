@@ -1,4 +1,4 @@
-function [ corCnt, DI ] = statCalc( data, idx, centroids, fName, nClust, lims )
+function [ corCnt, DI ] = statCalc( data, idx, centroids, nClust, fName, lims )
 % data is data matrix
 % idx is index of clasters for each point
 % Centroids is matrix of centroids (each row is one centroid)
@@ -31,7 +31,9 @@ function [ corCnt, DI ] = statCalc( data, idx, centroids, fName, nClust, lims )
     
     plot(centroids(1, 1), centroids(1, 2), 'rx', 'MarkerSize', 10, 'LineWidth', 3);
     plot(centroids(2, 1), centroids(2, 2), 'bx', 'MarkerSize', 10, 'LineWidth', 3);
-    axis(lims);
+    if nargin > 5
+        axis(lims);
+    end
     set(gca,'FontSize',15);
     hold off;
     

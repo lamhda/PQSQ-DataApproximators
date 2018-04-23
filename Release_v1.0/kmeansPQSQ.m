@@ -8,7 +8,7 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
 %   data matrix, regardless of its orientation.  kmeansPQSQ returns an
 %   N-by-1 vector IDX containing the cluster indices of each point.
 %
-%   kmeansPQSQ do not work with missed data. All NaNs treated as missed
+%   kmeansPQSQ do not work with missed data. All NaNs are treated as missed
 %   data and caused error.
 %
 %   [IDX, C] = kmeansPQSQ(X, K, @fun) also returns the K cluster centroid
@@ -72,7 +72,7 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
 %
 %
 %   kmeansPQSQ uses a iterative algorithm to minimize the sum of
-%   point-to-centroid PQSQ potential, summed over all K clusters.  Method
+%   point-to-centroid PQSQ potentials, summed over all K clusters.  Method
 %   uses what the literature often describes as "batch" updates, where each
 %   iteration consists of reassigning points to their nearest cluster
 %   centroid, all at once, followed by recalculation of cluster centroids.
@@ -85,7 +85,7 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
     end
 
     if any(any(isnan(X)))
-        error('Missed data unacceptable');
+        error('Missed data are unacceptable');
     end
 
     % n points in p dimensional space
@@ -235,7 +235,7 @@ function [idxbest, Cbest, sumDbest, Dbest] = kmeansPQSQ(X, k, potential_function
         %create list of associated centroids
         indx = repmat(-1,n,1);
         while (true)
-            %Associate poits with centroids 
+            %Associate points with centroids 
             D = distfun(X, C, potentialFunction);
             [d, idx] = min(D, [], 2);
             %Calculate the number of points associated with each centroid.
