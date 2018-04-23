@@ -1,3 +1,5 @@
+addpath ../../Release_v1.0/
+
 % This script 
 % 1. Generate/load data set for k-means test,
 % 2. Test standard Matlab kmeans and kmeansPQSQ
@@ -6,7 +8,7 @@
 % 5. Draw graph of fraction of correct clusterings and Dunn index
 
 % Define parameters of script
-generate = 0;   % 0 to load file data.mat and non zero to genrate randomly
+generate = 1;   % 0 to load file data.mat and non zero to genrate randomly
 nClust = 100;   % Number of points in each cluster
 nNoise = 200;   % Number of noise points in set with maximal noise.
 minNoise = 20;  % Minimal number of noise points
@@ -94,6 +96,7 @@ correctPQ = zeros(nTests, nSets);   % Number of correct clusterings for kmeansPQ
 
 % Loops of testing
 for kSet = 1:nSets
+    display(sprintf('Iteration %i/%i',kSet,nSets));
     nN = minNoise + (kSet - 1) * stepNoise;
     data = [r1; r2; noise(1:nN, :)];
     for kTest = 1: nTests
