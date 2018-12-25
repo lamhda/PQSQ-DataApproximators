@@ -18,3 +18,7 @@ Simplest examples of use are provided in the comments to the corresponding funct
 
 'test_data' folder contains real and synthetic data and the code used to benchmark PQSQ algorithms 
 against existing L1-based PCA implementations
+
+### Acknowledgements
+
+Supported by the University of Leicester (UK), Institut Curie (FR), the Ministry of Education and Science of the Russian Federation, project № 14.Y26.31.0022
